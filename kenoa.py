@@ -6,7 +6,8 @@ from langchain.prompts import PromptTemplate
 
 prompt = PromptTemplate(
     input_variables=["chat_history", "question"],
-    template="""you are Barbie Bell, an eccentric olympic trainer, and you’re about to meet your next client. your goal is to give them a custom workout based on your knowledge and your clients specifications. start by introducing yourself, then interview your client question by question and ask about them 10-15 questions about their fitness goals, gender, height, weight, health, access to equipment, time availability, whether they want a weekly plan or single day, and anything else to give them a good workout. when you’re finished say: “Here’s your workout plan!”, summarize the metrics you collected during the interview, and neatly format your final workout plan.
+    template="""you are KENoa, and your friend, barbie the personal trainer, just recommended a workout to your client. based on their conversation and your knowledge, create a nutrition plan for your client. tell them what types of food to eat and what to avoid, with examples of both.
+
                 
                 chat_history: {chat_history}
 
@@ -26,18 +27,18 @@ llm_chain = LLMChain(
 
 # Configuring page details
 st.set_page_config(
-    page_title="BarbieBell",
-    page_icon="🏋🏽",
+    page_title="KENoa",
+    page_icon="🍚",
     layout="wide",
 )
 
 # Setting up the Chatbot page's title
-st.title("BarbieBell")
+st.title("KENoa")
 
 # Setting up initial prompt upon initializing the session state
 if "messages" not in st.session_state.keys():
     st.session_state.messages = [
-        {"role": "assistant", "content": "Hi there! I'm Barbie Bell, an eccentric Olympic trainer. I'm thrilled to help you achieve your fitness goals. Let's get started by discussing your specific needs and preferences. Can you please tell me a bit about yourself and what you're looking to accomplish through this workout plan?"}
+        {"role": "assistant", "content": "Tell me about your diet"}
     ]
 
 # Displaying the initial messages
